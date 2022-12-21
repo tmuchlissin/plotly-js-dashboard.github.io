@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html style="background:#2F4F4F; font-family: Broadway;">
+<h1 style="text-align:center; color: white;"> Dashboard Penjualan Barang </h1>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<head>
+<body>
+
+<div id="scatter" style="border:1px solid black;padding-right:1rem;"></div>
+<div id="linegraph" style="border:1px solid black;padding-right:1rem;"></div>
+<div id="banyakdata" style="border:1px solid black"></div>
+<div id="barchart" style="border:1px solid black"></div>
+<div id="hbarchart" style="border:1px solid black"></div>
+<div id="piechart" style="border:1px solid black"></div>
+<div id="donutchart" style="border:1px solid black"></div>
+
+	<script>
+	// Scatter plot
+	
+	var xArray = [1,2,3,4,5,6,7,8,9,10];
+	var yArray = [15,20,35,10,20,30,25,40,45,50];
+
+	// Define Data
+	var data = [{
+	  x:xArray,
+	  y:yArray,
+	  mode:"markers"
+	}];
+
+	// Define Layout
+	var layout = {
+	  xaxis: {range: [0, 11], title: "Barang"},
+	  yaxis: {range: [5, 105], title: "Kuantitas"},  
+	  title: "Scatter Plot Barang vs. Kuantitas",
+	  paper_bgcolor: "#20B2AA",
+	  plot_bgcolor: "#E0FFFF",
+	  font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15"
+	  }
+	};
+
+	// Display using Plotly
+	Plotly.newPlot("scatter", data, layout);
+	
+	//Line Graph
+	
+	var xArray = [1,2,3,4,5,6,7,8,9,10];
+	var yArray = [15,20,35,10,20,30,25,40,45,50];
+
+	// Define Data
+	var data = [{
+	  x: xArray,
+	  y: yArray,
+	  mode:"lines"
+	}];
+
+	// Define Layout
+	var layout = {
+	  xaxis: {range: [1, 10], title: "Barang"},
+	  yaxis: {range: [10, 100], title: "Kuantitas"},  
+	  title: "Line Graph Barang vs. Kuantitas",
+	  paper_bgcolor: "#87CEEB",
+	  plot_bgcolor: "#F5F5F5",
+	  font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15"
+	  }
+	};
+
+	// Display using Plotly
+	Plotly.newPlot("linegraph", data, layout);
+	
+	// Peramalan (Banyak Data)
+	var xArray1 = [1,2,3,4,5,6,7,8,9,10];
+	var yArray1 = [7,8,8,9,9,9,10,11,14,14,15];
+	var xArray2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+	var yArray2 = [15,20,35,10,20,30,25,40,45,50,60,70,80,85,90];
+
+	var data = [
+	  {x: xArray1, y: yArray1, mode:"lines"},
+	  {x: xArray2, y: yArray2, mode:"lines"}
+	];
+
+
+	var layout = 
+	{title: "Peramalan Kuantitas Barang",
+	 xaxis: {title: "Barang"},
+	 yaxis: {title: "Kuantitas"},
+	 paper_bgcolor: "#3CB371",
+	 plot_bgcolor: "#FDF5E6",
+	 font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15"
+	  }
+	};
+	
+	// Display using Plotly
+	Plotly.newPlot("banyakdata", data,layout);
+	
+	// Bar Chart
+	var xArray = [1,2,3,4,5,6,7,8,9,10];
+	var yArray = [15,20,35,10,20,30,25,40,45,50];
+
+	var data = [{
+	  x:xArray,
+	  y:yArray,
+	  type:"bar",
+	  marker: {color:"#C71585"}
+	}];
+
+	var layout = {
+	xaxis: {title: "Barang"},
+	yaxis: {title: "Kuantitas"},
+	title:"Bar Chart",
+	paper_bgcolor: "#1E90FF",
+	plot_bgcolor: "#F8F8FF",
+	font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15"
+	  }
+	};
+
+	Plotly.newPlot("barchart", data, layout);
+	
+	// Horizontal Bar Chart
+	var xArray = [15,20,35,10,20,30,25,40,45,50];
+	var yArray = [1,2,3,4,5,6,7,8,9,10];
+
+	var data = [{
+	  x:xArray,
+	  y:yArray,
+	  type:"bar",
+	  orientation:"h",
+	  marker: {color:"#9932CC"}
+	}];
+
+	var layout = {
+	xaxis: {title: "Kuantitas"},
+	yaxis: {title: "Barang"},
+	title:"Horizontal Bar Chart",
+	paper_bgcolor: "#00CED1",
+	plot_bgcolor: "#FFF8DC",
+	  font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15"
+	  }
+	};
+
+	Plotly.newPlot("hbarchart", data, layout);
+	
+	// Pie Chart
+	var xArray = [1,2,3,4,5,6,7,8,9,10];
+	var yArray = [15,20,35,10,20,30,25,40,45,50];
+
+	var layout = {
+	title:"Pie Chart",
+	paper_bgcolor: "#6495ED",
+	plot_bgcolor: "#663399",
+	  font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15" 
+	  }
+	};
+
+	var data = [{labels:xArray, values:yArray, type:"pie"}];
+
+	Plotly.newPlot("piechart", data, layout);
+	
+	// Donut Chart
+	var xArray = [1,2,3,4,5,6,7,8,9,10];
+	var yArray = [15,20,35,10,20,30,25,40,45,50];
+
+	var layout = {
+	title:"Donut Chart",
+	paper_bgcolor: "#3CB371",
+	plot_bgcolor: "#C0C0C0",
+	  font : {
+		family : "Franklin Gothic Heavy",
+		color : "black",
+		size : "15" 
+	  }
+	};
+
+	var data = [{labels:xArray, values:yArray, hole:.8, type:"pie"}];
+
+	Plotly.newPlot("donutchart", data, layout);
+	
+	</script>
+
+</body>
+</head>
+</html>
+
+
+
+
+
